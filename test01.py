@@ -5,10 +5,14 @@
 # Ctrl + Shift + F10 (실행)
 
 numList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
-numTuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 9) # Data cannot be changed!
+
+# Tuple Data cannot be changed!
+numTuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 9)
+
 numDictionary = {'one': 1, 'two': 2, 'three': 3}
 
-numDicKeys = [data for data in numDictionary.keys()] # using list comprehension
+# using list comprehension
+numDicKeys = [data for data in numDictionary.keys()]
 
 print(numList)
 for num in numList:
