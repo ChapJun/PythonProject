@@ -5,6 +5,9 @@
 # Ctrl + Shift + F10 (실행)
 
 numList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9]
+numSet = set(numList)
+
+print('Set : ', numSet)
 
 # Tuple Data cannot be changed!
 numTuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 9)
