@@ -16,10 +16,10 @@ class Node:
 
 
 class NodeMgmt:
-    def __init__(self, data):
+    def __init__(self, data):  # 생성자
         self.head = Node(data)
 
-    def add(self, data):    # 맨 끝 추가
+    def add(self, data):  # 맨 끝 추가
         if self.head == '':
             self.head = Node(data)
         else:
@@ -28,12 +28,54 @@ class NodeMgmt:
                 node = node.next
             node.next = Node(data)
 
-    def desc(self):     # 출력
+    def desc(self):  # 출력
         node = self.head
         while node.next:
             print(node.data)
             node = node.next
         print(node.data)
+
+    def insert(self, data, idx):  # 중간삽입
+        if self.head == '':
+            self.head = Node(data)
+        else:
+            node = self.head
+            cnt = 0
+            while cnt < idx - 1:
+                node = node.next
+                cnt += 1
+            node.next = Node(data, node.next)
+
+    def delete(self, data):
+        if self.head == '':
+            return
+        node = self.head
+        if node.data == data:
+            temp = self.head
+            self.head = self.head.next
+            del temp
+        else:
+            while node.next:
+                if node.next.data == data:
+                    temp = node.next
+                    node.next = node.next.next
+                    del temp
+                    return
+                else:
+                    node = node.next
+
+    def select(self, data):
+        if self.head == '':
+            return None
+        node = self.head
+        if node.data == data:
+            return node.data
+        else:
+            while node.next:
+                if node.data == data:
+                    return node.data
+                else:
+                    node = node.next
 
 
 linkedlist1 = NodeMgmt(0)
@@ -41,5 +83,18 @@ linkedlist1 = NodeMgmt(0)
 for i in range(1, 10):
     linkedlist1.add(i)
 
-linkedlist1.desc()
+print(linkedlist1.select(4))
 
+linkedlist1.insert(200, 2)
+linkedlist1.insert(500, 5)
+# linkedlist1.desc()
+
+# print("=====================")
+
+linkedlist1.delete(200)
+# linkedlist1.desc()
+
+# print("=====================")
+
+linkedlist1.delete(0)
+# linkedlist1.desc()
